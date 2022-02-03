@@ -5,7 +5,7 @@ namespace DesignPattern.AbstractFactory.Domain.Products
 {
     public class AnnexThreeIRRFTax : TaxCollectionSchemeAnnexThree
     {
-        public AnnexThreeIRRFTax() : base(TaxCollectionSchemeType.AnnexThree, "Anexo 3 - IRRF", 0.01373)
+        public AnnexThreeIRRFTax(double grossBilling) : base(TaxCollectionSchemeType.AnnexThree, "Anexo 3 - IRRF", 0.01373, grossBilling)
         {
         }
     }

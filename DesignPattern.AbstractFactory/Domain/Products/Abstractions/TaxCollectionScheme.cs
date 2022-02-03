@@ -14,6 +14,6 @@ namespace DesignPattern.AbstractFactory.Domain.Products.Abstractions
             Description = description;
         }
 
-        public abstract double CalculateTax(double grossBilling);
+        public abstract double CalculateTax();
     }
 }

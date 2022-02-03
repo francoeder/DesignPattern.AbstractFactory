@@ -6,14 +6,14 @@ namespace DesignPattern.AbstractFactory.Factory
 {
     public class TaxCollecionSchemeAnnexFiveFactory : TaxCollectionSchemeFactory
     {
-        public override TaxCollectionScheme GetCollectionSchemeTax(TaxType taxType)
+        public override TaxCollectionScheme GetCollectionSchemeTax(TaxType taxType, double grossBilling)
         {
             switch (taxType)
             {
                 case TaxType.INSS:
                     return new AnnexFiveINSSTax();
                 case TaxType.DAS:
-                    return new AnnexFiveDASTax();
+                    return new AnnexFiveDASTax(grossBilling);
                 default:
                     throw new ArgumentException("Esse tipo de imposto não se aplica ao Anexo 5.");
             }

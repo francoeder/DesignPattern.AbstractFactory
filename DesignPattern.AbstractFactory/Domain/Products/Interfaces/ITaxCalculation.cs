@@ -2,6 +2,6 @@
 {
     public interface ITaxCalculation
     {
-        double CalculateTax(double grossBilling);
+        double CalculateTax();
     }
 }

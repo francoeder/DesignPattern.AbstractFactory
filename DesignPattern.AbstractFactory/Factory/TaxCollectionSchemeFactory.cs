@@ -5,7 +5,7 @@ namespace DesignPattern.AbstractFactory.Factory
 {
     public abstract class TaxCollectionSchemeFactory
     {
-        public abstract TaxCollectionScheme GetCollectionSchemeTax(TaxType taxType);
+        public abstract TaxCollectionScheme GetCollectionSchemeTax(TaxType taxType, double grossBilling);
 
         public static TaxCollectionSchemeFactory CreateTaxCollectionSchemaFactory(double grossBilling, double proLabor)
         {

@@ -6,14 +6,17 @@ namespace DesignPattern.AbstractFactory.Domain.Products
     public class AnnexFiveDASTax : TaxCollectionSchemeAnnexFive
     {
         public double Aliquot { get; }
-        public AnnexFiveDASTax() : base(TaxCollectionSchemeType.AnnexFive, "Anexo 5 - DAS")
+        public double GrossBilling { get; set; }
+
+        public AnnexFiveDASTax(double grossBilling) : base(TaxCollectionSchemeType.AnnexFive, "Anexo 5 - DAS")
         {
             Aliquot = 0.155;
+            GrossBilling = grossBilling;
         }
 
-        public override double CalculateTax(double grossBilling)
+        public override double CalculateTax()
         {
-            return grossBilling * Aliquot;
+            return GrossBilling * Aliquot;
         }
     }
 }

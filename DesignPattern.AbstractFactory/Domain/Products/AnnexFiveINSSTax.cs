@@ -9,7 +9,7 @@ namespace DesignPattern.AbstractFactory.Domain.Products
         {
         }
 
-        public override double CalculateTax(double grossBilling) // TODO: Apply Interface Segregation Principle, because grossBilling was not necessary here
+        public override double CalculateTax()
         {
             return 121;
         }

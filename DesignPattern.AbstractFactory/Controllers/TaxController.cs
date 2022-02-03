@@ -15,8 +15,8 @@ namespace DesignPattern.AbstractFactory.Controllers
         {
             var taxCollectionSchemeFactory = TaxCollectionSchemeFactory.CreateTaxCollectionSchemaFactory(grossBilling, proLabor);
 
-            var schemeTax = taxCollectionSchemeFactory.GetCollectionSchemeTax(taxType);
-            var taxCalculated = schemeTax.CalculateTax(grossBilling);
+            var schemeTax = taxCollectionSchemeFactory.GetCollectionSchemeTax(taxType, grossBilling);
+            var taxCalculated = schemeTax.CalculateTax();
 
             var result = new
             {
