@@ -1,4 +1,7 @@
+using Microsoft.AspNetCore.Diagnostics;
+using System.Text.Json;
 using System.Text.Json.Serialization;
+using static System.Net.Mime.MediaTypeNames;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +24,40 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseExceptionHandler(exceptionHandlerApp =>
+{
+    exceptionHandlerApp.Run(async context =>
+    {
+        context.Response.ContentType = Application.Json;
+
+        var exceptionHandlerPathFeature =
+            context.Features.Get<IExceptionHandlerPathFeature>();
+
+        object body;
+
+        if (exceptionHandlerPathFeature?.Error is ArgumentException)
+        {
+            context.Response.StatusCode = StatusCodes.Status422UnprocessableEntity;
+            body = new
+            {
+                statusCode = context.Response.StatusCode,
+                message = exceptionHandlerPathFeature.Error.Message
+            };
+        }
+        else
+        {
+            context.Response.StatusCode = StatusCodes.Status500InternalServerError;
+            body = new
+            {
+                statusCode = context.Response.StatusCode,
+                message = "An exception was thrown."
+            };
+        }
+
+        await context.Response.WriteAsync(JsonSerializer.Serialize(body));
+    });
+});
 
 app.UseHttpsRedirection();
 
