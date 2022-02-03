@@ -3,9 +3,9 @@ using DesignPattern.AbstractFactory.Domain.Products.Abstractions;
 
 namespace DesignPattern.AbstractFactory.Domain.Products
 {
-    public class AnnexFiveINSSTax : TaxCollectionSchemeAnnexFive
+    public class AnnexFiveINSSTax : TaxCollectionSchemaAnnexFive
     {
-        public AnnexFiveINSSTax() : base(TaxCollectionSchemeType.AnnexFive, "Anexo 5 - INSS")
+        public AnnexFiveINSSTax() : base(TaxCollectionSchemaType.AnnexFive, "Anexo 5 - INSS")
         {
         }
 

@@ -13,14 +13,14 @@ namespace DesignPattern.AbstractFactory.Controllers
         [HttpGet]
         public IActionResult Calculate(TaxType taxType,  double grossBilling, double proLabor)
         {
-            var taxCollectionSchemeFactory = TaxCollectionSchemeFactory.CreateTaxCollectionSchemaFactory(grossBilling, proLabor);
+            var taxCollectionSchemaFactory = TaxCollectionSchemaFactory.CreateTaxCollectionSchemaFactory(grossBilling, proLabor);
 
-            var schemeTax = taxCollectionSchemeFactory.GetCollectionSchemeTax(taxType, grossBilling);
-            var taxCalculated = schemeTax.CalculateTax();
+            var taxCollectionSchema = taxCollectionSchemaFactory.CreateTaxCollectionSchema(taxType, grossBilling);
+            var taxCalculated = taxCollectionSchema.CalculateTax();
 
             var result = new
             {
-                schemeTax.Description,
+                taxCollectionSchema.Description,
                 taxCalculated,
             };
 

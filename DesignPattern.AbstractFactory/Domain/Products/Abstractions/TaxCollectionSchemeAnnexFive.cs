@@ -2,9 +2,9 @@
 
 namespace DesignPattern.AbstractFactory.Domain.Products.Abstractions
 {
-    public abstract class TaxCollectionSchemeAnnexFive : TaxCollectionScheme
+    public abstract class TaxCollectionSchemaAnnexFive : TaxCollectionSchema
     {
-        protected TaxCollectionSchemeAnnexFive(TaxCollectionSchemeType type, string description) : base(type, description)
+        protected TaxCollectionSchemaAnnexFive(TaxCollectionSchemaType type, string description) : base(type, description)
         {
         }
     }

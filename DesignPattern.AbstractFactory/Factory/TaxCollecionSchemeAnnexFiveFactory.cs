@@ -4,9 +4,9 @@ using DesignPattern.AbstractFactory.Domain.Products.Abstractions;
 
 namespace DesignPattern.AbstractFactory.Factory
 {
-    public class TaxCollecionSchemeAnnexFiveFactory : TaxCollectionSchemeFactory
+    public class TaxCollecionSchemaAnnexFiveFactory : TaxCollectionSchemaFactory
     {
-        public override TaxCollectionScheme GetCollectionSchemeTax(TaxType taxType, double grossBilling)
+        public override TaxCollectionSchema CreateTaxCollectionSchema(TaxType taxType, double grossBilling)
         {
             switch (taxType)
             {

@@ -2,12 +2,12 @@
 
 namespace DesignPattern.AbstractFactory.Domain.Products.Abstractions
 {
-    public abstract class TaxCollectionSchemeAnnexThree : TaxCollectionScheme
+    public abstract class TaxCollectionSchemaAnnexThree : TaxCollectionSchema
     {
         public double Aliquot { get; set; }
         public double GrossBilling { get; set; }
 
-        protected TaxCollectionSchemeAnnexThree(TaxCollectionSchemeType type, string description, double aliquot, double grossBilling) : base(type, description)
+        protected TaxCollectionSchemaAnnexThree(TaxCollectionSchemaType type, string description, double aliquot, double grossBilling) : base(type, description)
         {
             Aliquot = aliquot;
             GrossBilling = grossBilling;
