@@ -1,4 +1,5 @@
 ﻿using DesignPattern.AbstractFactory.Domain.Enums;
+using DesignPattern.AbstractFactory.Domain.Products.Interfaces;
 
 namespace DesignPattern.AbstractFactory.Domain.Products.Abstractions
 {

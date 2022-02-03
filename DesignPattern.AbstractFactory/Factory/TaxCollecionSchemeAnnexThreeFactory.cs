@@ -1,23 +1,21 @@
 ﻿using DesignPattern.AbstractFactory.Domain.Enums;
 using DesignPattern.AbstractFactory.Domain.Products;
+using DesignPattern.AbstractFactory.Domain.Products.Abstractions;
 
 namespace DesignPattern.AbstractFactory.Factory
 {
     public class TaxCollecionSchemeAnnexThreeFactory : TaxCollectionSchemeFactory
     {
-        public override (string, double) CalculateTax(TaxType taxType, double grossBilling)
+        public override TaxCollectionScheme GetCollectionSchemeTax(TaxType taxType)
         {
             switch (taxType)
             {
                 case TaxType.INSS:
-                    var inssTax = new AnnexThreeINSSTax();
-                    return (inssTax.Description, grossBilling * inssTax.Aliquot);
+                    return new AnnexThreeINSSTax();
                 case TaxType.IRRF:
-                    var irrfTax = new AnnexThreeIRRFTax();
-                    return (irrfTax.Description, grossBilling * irrfTax.Aliquot);
+                    return new AnnexThreeIRRFTax();
                 case TaxType.DAS:
-                    var dasTax = new AnnexThreeDASTax();
-                    return (dasTax.Description, grossBilling * dasTax.Aliquot);
+                    return new AnnexThreeDASTax();
                 default:
                     throw new ArgumentException("Esse tipo de imposto não se aplica ao Anexo 3.");
             }

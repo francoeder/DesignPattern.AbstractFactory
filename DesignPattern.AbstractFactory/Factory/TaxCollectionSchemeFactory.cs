@@ -1,10 +1,11 @@
 ﻿using DesignPattern.AbstractFactory.Domain.Enums;
+using DesignPattern.AbstractFactory.Domain.Products.Abstractions;
 
 namespace DesignPattern.AbstractFactory.Factory
 {
     public abstract class TaxCollectionSchemeFactory
     {
-        public abstract (string, double) CalculateTax(TaxType taxType, double grossBilling);
+        public abstract TaxCollectionScheme GetCollectionSchemeTax(TaxType taxType);
 
         public static TaxCollectionSchemeFactory CreateTaxCollectionSchemaFactory(double grossBilling, double proLabor)
         {

@@ -1,4 +1,5 @@
 ﻿using DesignPattern.AbstractFactory.Domain.Enums;
+using DesignPattern.AbstractFactory.Domain.Products.Interfaces;
 
 namespace DesignPattern.AbstractFactory.Domain.Products.Abstractions
 {
@@ -9,5 +10,7 @@ namespace DesignPattern.AbstractFactory.Domain.Products.Abstractions
         {
             Aliquot = aliquot;
         }
+
+        public override double CalculateTax(double grossBilling) => grossBilling * Aliquot;
     }
 }

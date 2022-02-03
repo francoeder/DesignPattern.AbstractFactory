@@ -1,8 +1,9 @@
 ﻿using DesignPattern.AbstractFactory.Domain.Enums;
+using DesignPattern.AbstractFactory.Domain.Products.Interfaces;
 
 namespace DesignPattern.AbstractFactory.Domain.Products.Abstractions
 {
-    public abstract class TaxCollectionScheme
+    public abstract class TaxCollectionScheme : ITaxCalculation
     {
         public TaxCollectionSchemeType Type { get; set; }
         public string Description { get; set; }
@@ -12,5 +13,7 @@ namespace DesignPattern.AbstractFactory.Domain.Products.Abstractions
             Type = type;
             Description = description;
         }
+
+        public abstract double CalculateTax(double grossBilling);
     }
 }

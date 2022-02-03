@@ -1,20 +1,19 @@
 ﻿using DesignPattern.AbstractFactory.Domain.Enums;
 using DesignPattern.AbstractFactory.Domain.Products;
+using DesignPattern.AbstractFactory.Domain.Products.Abstractions;
 
 namespace DesignPattern.AbstractFactory.Factory
 {
     public class TaxCollecionSchemeAnnexFiveFactory : TaxCollectionSchemeFactory
     {
-        public override (string, double) CalculateTax(TaxType taxType, double grossBilling)
+        public override TaxCollectionScheme GetCollectionSchemeTax(TaxType taxType)
         {
             switch (taxType)
             {
                 case TaxType.INSS:
-                    var inssTax = new AnnexFiveINSSTax();
-                    return (inssTax.Description, 121);
+                    return new AnnexFiveINSSTax();
                 case TaxType.DAS:
-                    var dasTax = new AnnexFiveDASTax();
-                    return (dasTax.Description, grossBilling * dasTax.Aliquot);
+                    return new AnnexFiveDASTax();
                 default:
                     throw new ArgumentException("Esse tipo de imposto não se aplica ao Anexo 5.");
             }

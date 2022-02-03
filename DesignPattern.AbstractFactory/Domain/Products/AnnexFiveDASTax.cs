@@ -10,5 +10,10 @@ namespace DesignPattern.AbstractFactory.Domain.Products
         {
             Aliquot = 0.155;
         }
+
+        public override double CalculateTax(double grossBilling)
+        {
+            return grossBilling * Aliquot;
+        }
     }
 }
